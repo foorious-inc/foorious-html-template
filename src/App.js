@@ -4,6 +4,7 @@ import './App.css';
 
 // Tooltips
 import Tooltip from './components/lib/Tooltip.js';
+import { Container, Row, Col } from './components/lib/Grid.js';
 
 class UIBox extends Component {
   render() {
@@ -43,7 +44,7 @@ class UIBox extends Component {
 class App extends Component {
   render() {
     return (
-      <div className="container">
+      <Container>
         <div className="page-header" id="banner">
           <div className="row">
             <div className="col-lg-12">
@@ -1423,7 +1424,7 @@ class App extends Component {
             </div>
           </div>
         </UIBox>
-      </div>
+      </Container>
     );
   }
 }
