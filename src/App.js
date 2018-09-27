@@ -3,8 +3,9 @@ import logo from './logo.svg';
 import './App.css';
 
 // Tooltips
-import Tooltip from './components/lib/Tooltip.js';
-import { Container, Row, Col } from './components/lib/Grid.js';
+import Tooltip from './components/lib/Tooltip';
+import { Container, Row, Col } from './components/lib/Grid';
+import HamburgerButton from './components/lib/HamburgerButton';
 
 class UIBox extends Component {
   render() {
@@ -43,7 +44,12 @@ class UIBox extends Component {
 
 class App extends Component {
   render() {
-    return (
+    let content = [];
+
+
+
+    // add all elems
+    content.push(
       <Container>
         <div className="page-header" id="banner">
           <div className="row">
@@ -53,10 +59,15 @@ class App extends Component {
           </div>
         </div>
     
-        <UIBox name="Navbar" disabled>
+        <UIBox name="Navbar">
           <div className="bs-docs-section clearfix">
             <div className="row">
               <div className="col-lg-12">
+                <h3>Hamburger menu</h3>
+                <HamburgerButton />   
+
+                <h3>Navbar</h3>
+
                 <div className="bs-component">
                   <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
                     <a className="navbar-brand" href="#">Navbar</a>
@@ -1426,6 +1437,8 @@ class App extends Component {
         </UIBox>
       </Container>
     );
+
+    return content;
   }
 }
 
