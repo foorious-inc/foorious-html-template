@@ -2,6 +2,10 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// Tooltips
+import Tippy from '@tippy.js/react'
+import 'tippy.js/dist/tippy.css'
+
 class App extends Component {
   render() {
     return (
@@ -1365,8 +1369,9 @@ class App extends Component {
     
                 <button type="button" className="btn btn-secondary" title="" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus." data-original-title="Popover Title">Right</button>
               </div>
+
               <h2>Tooltips</h2>
-              <div className="bs-component">
+              {/* <div className="bs-component">
                 <button type="button" className="btn btn-secondary" data-toggle="tooltip" data-placement="left" title="" data-original-title="Tooltip on left">Left</button>
     
                 <button type="button" className="btn btn-secondary" data-toggle="tooltip" data-placement="top" title="" data-original-title="Tooltip on top">Top</button>
@@ -1374,6 +1379,26 @@ class App extends Component {
                 <button type="button" className="btn btn-secondary" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="Tooltip on bottom">Bottom</button>
     
                 <button type="button" className="btn btn-secondary" data-toggle="tooltip" data-placement="right" title="" data-original-title="Tooltip on right">Right</button>
+              </div> */}
+              <div className="container">
+                <div className="row">
+                  <div className="col-6">
+                    <Tippy content="Hi" arrow={true} animation="shift-away" inertia={true} duration={350} delay={[100, 50]}>
+                      <span>Hover me</span>
+                    </Tippy>
+                  </div>
+                  <div className="col-6">
+                    <Tippy content={
+                      <div>
+                      <h1>Tooltip with JSX content</h1>
+                      <p>WOW!</p>
+                      <img src="https://i.imgur.com/ZK5DVuN.gif" />
+                      </div>
+                    } arrow={true} animation="shift-away" inertia={true} duration={350} delay={[100, 50]}>
+                      <span>Hover me (JSX)</span>
+                    </Tippy>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
