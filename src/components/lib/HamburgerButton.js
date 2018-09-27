@@ -5,16 +5,21 @@ import React, { Component } from 'react';
 import { Motion, spring, presets } from 'react-motion';
 
 class HamburgerButton extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     
     this.state = {
       toggle: false
-    }
+    };
+    this.ANIMATION_DURATION = 250;
   }
   
-  handleClick() {
-    this.setState({toggle: !this.state.toggle})
+  handleClick(e) {
+    this.setState({toggle: !this.state.toggle});
+
+    if (this.props.onClick !== undefined) {
+      this.props.onClick(e, this.ANIMATION_DURATION);
+    }
   }
   
   render() {
