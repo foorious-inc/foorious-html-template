@@ -2,10 +2,18 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+// box
+import Box from './components/lib/Box';
+
 // Tooltips
 import Tooltip from './components/lib/Tooltip';
+
+// Grid
 import { Container, Row, Col } from './components/lib/Grid';
+
+// Navbar
 import HamburgerButton from './components/lib/HamburgerButton';
+import ResponsiveMenu from './components/lib/ResponsiveMenu';
 
 class UIBox extends Component {
   render() {
@@ -46,7 +54,26 @@ class App extends Component {
   render() {
     let content = [];
 
+    let message = (
+      <Container>
+        <Row>
+          <Col>
+            Save 40% on your 1st month!
+          </Col>
+        </Row>
+      </Container>
+    );
 
+    let navbar = (
+      <ResponsiveMenu />
+    );
+
+    content.push(
+      <React.Fragment>
+        {message}
+        {navbar}
+      </React.Fragment>
+    )
 
     // add all elems
     content.push(
@@ -64,9 +91,23 @@ class App extends Component {
             <div className="row">
               <div className="col-lg-12">
                 <h3>Hamburger menu</h3>
-                <HamburgerButton />   
+                <HamburgerButton onClick={(e, animationDuration) => {console.log('Animation will last: ' + animationDuration + 'ms')}} />   
+
+                <pre>
+                  {`
+<HamburgerButton onClick={(e, animationDuration) => {console.log('Animation will last: ' + animationDuration + 'ms')}} />   
+                  `}
+                </pre>
+
+                <p>Requires: <code>react-motion</code></p>
 
                 <h3>Navbar</h3>
+                <ResponsiveMenu>
+                  <Box px={1} py={1} float-lg="right">Hello!</Box>
+                  <Box px={1} py={1} float-lg="right">There!</Box>
+                </ResponsiveMenu>
+
+                <p>Requires: <code>animate.css</code></p>
 
                 <div className="bs-component">
                   <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
@@ -1413,6 +1454,8 @@ class App extends Component {
 </Tooltip>
                           `}
                         </pre>
+
+                        <p>Requires: <code>@tippy.js/react</code></p>
                       </div>
                     </div>
                   </div>
